@@ -557,7 +557,7 @@ public class AddStudent extends JFrame implements ActionListener, KeyListener, I
 					}
 					else
 					{
-						JOptionPane.showMessageDialog(this, "Something went wrong while adding student", "Add Student", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(this, "Error in adding student to database", "Add Student", JOptionPane.ERROR_MESSAGE);
 					}					
 				}
 			}
