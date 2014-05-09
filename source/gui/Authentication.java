@@ -1,7 +1,6 @@
 package ims.gui;
 
 import javax.swing.*;
-
 import ims.main.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -93,73 +92,51 @@ public class Authentication extends JFrame implements ActionListener, KeyListene
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		
 		if(e.getSource() == button[0])
 		{
-			
 			UserUtility uu = new UserUtility(username.getText(), password.getPassword());
 			
 			if(uu.authenticateUser())
 			{
-				
 				this.dispose();
 				new IMSMain();
-				
 			}
 			else
 			{
-				
 				JOptionPane.showMessageDialog(this, "User authentication fails", "Authentication failure", JOptionPane.ERROR_MESSAGE);
 				password.setText("");
-				
 			}
-			
 		}
 		else
 		{
-			
 			this.dispose();
-			
 		}
-		
 	}
 	
 	public void keyPressed(KeyEvent e)
 	{
-		
 		if(e.getSource() == button[0] && e.getKeyCode() == KeyEvent.VK_ENTER)
 		{
-			
 			UserUtility uu = new UserUtility(username.getText(), password.getPassword());
 			
 			if(uu.authenticateUser())
 			{
-				
 				this.dispose();
 				new IMSMain();
-				
 			}
 			else
 			{
-				
 				JOptionPane.showMessageDialog(this, "User authentication fails", "Authentication failure", JOptionPane.ERROR_MESSAGE);
 				password.setText("");
-				
 			}
-			
 		}
 		else
 		{
-			
 			if(e.getKeyCode() == KeyEvent.VK_ENTER)
 			{
-				
 				this.dispose();
-				
 			}
-			
 		}
-		
 	}
 	
 	public void keyTyped(KeyEvent e)
