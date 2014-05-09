@@ -1,9 +1,7 @@
 package ims.gui;
 
 import ims.main.Course;
-
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
 
@@ -23,15 +21,12 @@ public class AddCourse extends JFrame implements ActionListener, KeyListener
 	
 	public AddCourse()
 	{
-		
 		initializeComponent();
-		makeGUI();
-		
+		makeGUI();	
 	}
 	
 	private void initializeComponent()
 	{
-		
 		//Initialize labels
 		label_1 = new JLabel("Course Name");
 		label_2 = new JLabel("Course Fee");
@@ -53,13 +48,11 @@ public class AddCourse extends JFrame implements ActionListener, KeyListener
 		
 		//Add Key Listener to button
 		addbutton.addKeyListener(this);
-		cancelbutton.addKeyListener(this);
-		
+		cancelbutton.addKeyListener(this);	
 	}
 	
 	private void makeGUI()
 	{
-		
 		//Set frame's properties
 		this.setTitle("Add Course");
 		this.setSize(400, 100);
@@ -85,104 +78,71 @@ public class AddCourse extends JFrame implements ActionListener, KeyListener
 		this.validate();
 		
 		//Show frame
-		this.setVisible(true);
-		
+		this.setVisible(true);	
 	}
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		
 		if(e.getSource() == addbutton)
-		{
-			
+		{		
 			if(validateInformation())
-			{
-				
+			{		
 				Course course = new Course(this);
 				
 				if(course.addCourse())
 				{
-					
 					JOptionPane.showMessageDialog(this, "Course added", "Add Course", JOptionPane.INFORMATION_MESSAGE);
-					this.dispose();
-					
+					this.dispose();					
 				}
 				else
 				{
-					
-					JOptionPane.showMessageDialog(this, "Course not added", "Add Course", JOptionPane.ERROR_MESSAGE);
-					
+					JOptionPane.showMessageDialog(this, "Course not added", "Add Course", JOptionPane.ERROR_MESSAGE);	
 				}
-				
 			}
 			else
 			{
-				
-				JOptionPane.showMessageDialog(this, "Check your inputs", "Add Course", JOptionPane.ERROR_MESSAGE);
-				
+				JOptionPane.showMessageDialog(this, "Check your inputs", "Add Course", JOptionPane.ERROR_MESSAGE);	
 			}
-			
 		}
 		else
 		{
-			
-			this.dispose();
-			
+			this.dispose();	
 		}
-		
 	}
 	
 	public void keyPressed(KeyEvent e)
 	{
-		
 		if(e.getSource() == addbutton)
-		{
-			
+		{		
 			if(e.getKeyCode() == KeyEvent.VK_ENTER)
-			{
-				
+			{		
 				if(validateInformation())
-				{
-					
+				{		
 					Course course = new Course(this);
 					
 					if(course.addCourse())
-					{
-						
+					{		
 						JOptionPane.showMessageDialog(this, "Course added", "Add Course", JOptionPane.INFORMATION_MESSAGE);
-						this.dispose();
-						
+						this.dispose();	
 					}
 					else
 					{
-						
-						JOptionPane.showMessageDialog(this, "Course not added", "Add Course", JOptionPane.ERROR_MESSAGE);
-						
+						JOptionPane.showMessageDialog(this, "Course not added", "Add Course", JOptionPane.ERROR_MESSAGE);	
 					}
-					
 				}
 				else
 				{
-					
-					JOptionPane.showMessageDialog(this, "Check your inputs", "Add Course", JOptionPane.ERROR_MESSAGE);
-					
+					JOptionPane.showMessageDialog(this, "Check your inputs", "Add Course", JOptionPane.ERROR_MESSAGE);	
 				}
-				
 			}
-			
 		}
 		else
 		{
-			
 			if(e.getKeyCode() == KeyEvent.VK_ENTER)
-			{
-				
-				this.dispose();
-				
+			{		
+				this.dispose();	
 			}
-			
 		}
-		
 	}
 	
 	public void keyTyped(KeyEvent e)
@@ -198,43 +158,31 @@ public class AddCourse extends JFrame implements ActionListener, KeyListener
 	//Validation method
 	private boolean validateInformation()
 	{
-		
 		if(textfield_1.getText() == "")
-		{
-			
-			return false;
-			
+		{		
+			return false;	
 		}
 		
 		try
 		{
-			
 			Float.parseFloat(textfield_2.getText());
-			return true;
-			
+			return true;	
 		}
 		catch(Exception e)
 		{
-			
-			return false;
-			
+			return false;	
 		}
-		
 	}
 	
 	//Get course name
 	public String getCourseName()
 	{
-		
-		return textfield_1.getText().trim();
-		
+		return textfield_1.getText().trim();	
 	}
 	
 	//Get course fees
 	public float getCourseFees()
 	{
-		
-		return Float.parseFloat(textfield_2.getText());
-		
+		return Float.parseFloat(textfield_2.getText());	
 	}
 }
